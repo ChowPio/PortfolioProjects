@@ -1,3 +1,409 @@
+--BASE TABLES
+
+
+USE [SPD]
+GO
+
+/****** Object:  Table [dbo].[zd3_2021_dane]    Script Date: 2022-02-11 13:41:35 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[zd3_2021_dane](
+	[ids] [int] IDENTITY(1,1) NOT NULL,
+	[zapis_zmian_data] [datetime] NULL,
+	[zapis_zmian_ids_uzytkownika_fk] [int] NULL,
+	[zapis_zmian_nazwa_komputera] [nvarchar](100) NULL,
+	[zapis_zmian_login_windows] [nvarchar](100) NULL,
+	[zapis_zmian_dodatkowe_info] [nvarchar](max) NULL,
+	[zapis_zmian_nazwisko_imie_zalogowanego_do_spd] [varchar](100) NULL,
+	[zapis_zmian_import_danych] [int] NULL,
+	[zapis_zmian_status_bledu] [int] NULL,
+	[zapis_zmian_status_bledu_npl] [int] NULL,
+	[zapis_zmian_ilosc_bledow] [int] NULL,
+	[zapis_zmian_rekord_sprawdzony] [bit] NULL,
+	[zapis_zmian_ilosc_bledow_npl] [int] NULL,
+	[zapis_zmian_rekord_sprawdzony_npl] [bit] NULL,
+	[zapis_zmian_przydzielono_do_osoby] [nvarchar](50) NULL,
+	[zapis_zmian_czy_rekord_multisekcji] [bit] NULL,
+	[zapis_zmian_nazwa_multisekcji] [nvarchar](50) NULL,
+	[zapis_zmian_index_multisekcji] [int] NULL,
+	[zapis_zmian_lista_bledow] [nvarchar](max) NULL,
+	[zapis_zmian_lista_bledow_npl] [nvarchar](max) NULL,
+	[zapis_zmian_edycja] [nvarchar](100) NULL,
+	[zapis_zmian_data_importu] [datetime] NULL,
+	[roks] [decimal](4, 0) NULL,
+	[idspr] [decimal](8, 0) NULL,
+	[regon] [nvarchar](14) NULL,
+	[nuts1] [nvarchar](2) NULL,
+	[nuts3] [nvarchar](2) NULL,
+	[woj] [nvarchar](2) NULL,
+	[pow] [nvarchar](2) NULL,
+	[gmi] [nvarchar](2) NULL,
+	[rodz] [nvarchar](1) NULL,
+	[nr_kr] [nvarchar](12) NULL,
+	[o_or] [nvarchar](1) NULL,
+	[kod_or] [nvarchar](2) NULL,
+	[kod_podm] [nvarchar](2) NULL,
+	[kod_fop] [nvarchar](4) NULL,
+	[kod_jo] [nvarchar](3) NULL,
+	[rjs_p_przy] [nvarchar](1) NULL,
+	[rjs_p_inna] [nvarchar](1) NULL,
+	[kod_rpz] [nvarchar](2) NULL,
+	[kod_zl] [nvarchar](1) NULL,
+	[d1p1w1] [nvarchar](1) NULL,
+	[d1p1w2] [nvarchar](1) NULL,
+	[d1p1w3] [nvarchar](1) NULL,
+	[d1p1w4] [nvarchar](1) NULL,
+	[d1p1w5] [nvarchar](1) NULL,
+	[d1p1w6] [nvarchar](1) NULL,
+	[d1p1w7] [nvarchar](1) NULL,
+	[d1p1w8] [nvarchar](1) NULL,
+	[d1p1w9] [nvarchar](1) NULL,
+	[d1p1w10] [nvarchar](1) NULL,
+	[d2w1k1] [decimal](9, 0) NULL,
+	[d2w1k2] [decimal](7, 0) NULL,
+	[d2w2k1] [decimal](8, 0) NULL,
+	[d2w2k2] [decimal](7, 0) NULL,
+	[d2w3k1] [decimal](8, 0) NULL,
+	[d2w3k2] [decimal](7, 0) NULL,
+	[d2w4k1] [decimal](8, 0) NULL,
+	[d2w4k2] [decimal](7, 0) NULL,
+	[d2w5k1] [decimal](4, 0) NULL,
+	[d3w01k2] [decimal](3, 0) NULL,
+	[d3w01k3] [decimal](9, 0) NULL,
+	[d3w01k4] [decimal](8, 0) NULL,
+	[d3w01k5] [decimal](8, 0) NULL,
+	[d3w01k6] [decimal](8, 0) NULL,
+	[d3w02k2] [decimal](3, 0) NULL,
+	[d3w02k3] [decimal](9, 0) NULL,
+	[d3w02k4] [decimal](8, 0) NULL,
+	[d3w02k5] [decimal](8, 0) NULL,
+	[d3w02k6] [decimal](8, 0) NULL,
+	[d3w03k2] [decimal](3, 0) NULL,
+	[d3w03k3] [decimal](9, 0) NULL,
+	[d3w03k4] [decimal](8, 0) NULL,
+	[d3w03k5] [decimal](8, 0) NULL,
+	[d3w03k6] [decimal](8, 0) NULL,
+	[d3w04k2] [decimal](3, 0) NULL,
+	[d3w04k3] [decimal](9, 0) NULL,
+	[d3w04k4] [decimal](8, 0) NULL,
+	[d3w04k5] [decimal](8, 0) NULL,
+	[d3w04k6] [decimal](8, 0) NULL,
+	[d3w05k2] [decimal](3, 0) NULL,
+	[d3w05k3] [decimal](9, 0) NULL,
+	[d3w05k4] [decimal](9, 0) NULL,
+	[d3w05k5] [decimal](8, 0) NULL,
+	[d3w05k6] [decimal](8, 0) NULL,
+	[d3w06k2] [decimal](3, 0) NULL,
+	[d3w06k3] [decimal](9, 0) NULL,
+	[d3w06k5] [decimal](8, 0) NULL,
+	[d3w06k6] [decimal](8, 0) NULL,
+	[d3w07k2] [decimal](3, 0) NULL,
+	[d3w07k3] [decimal](9, 0) NULL,
+	[d3w07k4] [decimal](8, 0) NULL,
+	[d3w07k5] [decimal](8, 0) NULL,
+	[d3w07k6] [decimal](8, 0) NULL,
+	[d3w08k2] [decimal](3, 0) NULL,
+	[d3w08k3] [decimal](9, 0) NULL,
+	[d3w08k4] [decimal](8, 0) NULL,
+	[d3w08k5] [decimal](8, 0) NULL,
+	[d3w08k6] [decimal](8, 0) NULL,
+	[d3w09k2] [decimal](8, 0) NULL,
+	[d3w09k3] [decimal](9, 0) NULL,
+	[d3w09k4] [decimal](8, 0) NULL,
+	[d3w09k5] [decimal](8, 0) NULL,
+	[d3w09k6] [decimal](8, 0) NULL,
+	[d3w10k2] [decimal](3, 0) NULL,
+	[d3w10k3] [decimal](9, 0) NULL,
+	[d3w10k4] [decimal](8, 0) NULL,
+	[d3w10k5] [decimal](8, 0) NULL,
+	[d3w10k6] [decimal](8, 0) NULL,
+	[d3w11k2] [decimal](3, 0) NULL,
+	[d3w11k3] [decimal](9, 0) NULL,
+	[d3w11k4] [decimal](8, 0) NULL,
+	[d3w11k5] [decimal](8, 0) NULL,
+	[d3w11k6] [decimal](8, 0) NULL,
+	[d3w12k2] [decimal](3, 0) NULL,
+	[d3w12k3] [decimal](9, 0) NULL,
+	[d3w12k4] [decimal](8, 0) NULL,
+	[d3w12k5] [decimal](8, 0) NULL,
+	[d3w12k6] [decimal](8, 0) NULL,
+	[d3w13k2] [decimal](3, 0) NULL,
+	[d3w13k3] [decimal](9, 0) NULL,
+	[d3w13k4] [decimal](8, 0) NULL,
+	[d3w13k5] [decimal](8, 0) NULL,
+	[d3w13k6] [decimal](8, 0) NULL,
+	[d3w14k2] [decimal](3, 0) NULL,
+	[d3w14k3] [decimal](9, 0) NULL,
+	[d3w14k4] [decimal](8, 0) NULL,
+	[d3w14k5] [decimal](8, 0) NULL,
+	[d3w14k6] [decimal](8, 0) NULL,
+	[d3w15k2] [decimal](3, 0) NULL,
+	[d3w15k3] [decimal](9, 0) NULL,
+	[d3w15k4] [decimal](8, 0) NULL,
+	[d3w15k5] [decimal](8, 0) NULL,
+	[d3w15k6] [decimal](8, 0) NULL,
+	[d3w16k2] [decimal](3, 0) NULL,
+	[d3w16k3] [decimal](9, 0) NULL,
+	[d3w16k4] [decimal](8, 0) NULL,
+	[d3w16k5] [decimal](7, 0) NULL,
+	[d3w16k6] [decimal](8, 0) NULL,
+	[d3w17k2] [decimal](3, 0) NULL,
+	[d3w17k3] [decimal](9, 0) NULL,
+	[d3w17k4] [decimal](8, 0) NULL,
+	[d3w17k6] [decimal](8, 0) NULL,
+	[d3w18k2] [decimal](3, 0) NULL,
+	[d3w18k3] [decimal](9, 0) NULL,
+	[d3w18k4] [decimal](8, 0) NULL,
+	[d3w18k5] [decimal](8, 0) NULL,
+	[d3w18k6] [decimal](8, 0) NULL,
+	[d3w19k2] [decimal](3, 0) NULL,
+	[d3w19k3] [decimal](9, 0) NULL,
+	[d3w19k4] [decimal](8, 0) NULL,
+	[d3w19k5] [decimal](8, 0) NULL,
+	[d3w19k6] [decimal](8, 0) NULL,
+	[d3w20k2] [decimal](3, 0) NULL,
+	[d3w20k3] [decimal](9, 0) NULL,
+	[d3w20k4] [decimal](8, 0) NULL,
+	[d3w20k5] [decimal](8, 0) NULL,
+	[d3w20k6] [decimal](8, 0) NULL,
+	[d3w21k2] [decimal](3, 0) NULL,
+	[d3w21k3] [decimal](9, 0) NULL,
+	[d3w21k4] [decimal](8, 0) NULL,
+	[d3w21k5] [decimal](8, 0) NULL,
+	[d3w21k6] [decimal](8, 0) NULL,
+	[d3w22k2] [decimal](3, 0) NULL,
+	[d3w22k3] [decimal](9, 0) NULL,
+	[d3w22k4] [decimal](8, 0) NULL,
+	[d3w22k5] [decimal](8, 0) NULL,
+	[d3w22k6] [decimal](8, 0) NULL,
+	[d3w23k2] [decimal](3, 0) NULL,
+	[d3w23k3] [decimal](9, 0) NULL,
+	[d3w23k4] [decimal](8, 0) NULL,
+	[d3w23k5] [decimal](8, 0) NULL,
+	[d3w23k6] [decimal](8, 0) NULL,
+	[d3w24k2] [decimal](3, 0) NULL,
+	[d3w24k3] [decimal](9, 0) NULL,
+	[d3w24k4] [decimal](8, 0) NULL,
+	[d3w24k5] [decimal](8, 0) NULL,
+	[d3w24k6] [decimal](8, 0) NULL,
+	[d3w25k2] [decimal](3, 0) NULL,
+	[d3w25k3] [decimal](9, 0) NULL,
+	[d3w25k4] [decimal](8, 0) NULL,
+	[d3w25k5] [decimal](8, 0) NULL,
+	[d3w25k6] [decimal](8, 0) NULL,
+	[d3w26k2] [decimal](3, 0) NULL,
+	[d3w26k3] [decimal](9, 0) NULL,
+	[d3w26k4] [decimal](8, 0) NULL,
+	[d3w26k5] [decimal](8, 0) NULL,
+	[d3w26k6] [decimal](8, 0) NULL,
+	[d3w27k2] [decimal](3, 0) NULL,
+	[d3w27k3] [decimal](9, 0) NULL,
+	[d3w27k4] [decimal](8, 0) NULL,
+	[d3w27k5] [decimal](8, 0) NULL,
+	[d3w27k6] [decimal](8, 0) NULL,
+	[d3w28k2] [decimal](3, 0) NULL,
+	[d3w28k3] [decimal](9, 0) NULL,
+	[d3w28k4] [decimal](8, 0) NULL,
+	[d3w28k5] [decimal](8, 0) NULL,
+	[d3w28k6] [decimal](8, 0) NULL,
+	[d3w29k2] [decimal](3, 0) NULL,
+	[d3w29k3] [decimal](9, 0) NULL,
+	[d3w29k4] [decimal](8, 0) NULL,
+	[d3w29k5] [decimal](8, 0) NULL,
+	[d3w29k6] [decimal](8, 0) NULL,
+	[d3w30k2] [decimal](3, 0) NULL,
+	[d3w30k3] [decimal](9, 0) NULL,
+	[d3w30k4] [decimal](8, 0) NULL,
+	[d3w30k5] [decimal](8, 0) NULL,
+	[d3w30k6] [decimal](8, 0) NULL,
+	[d3w31k2] [decimal](3, 0) NULL,
+	[d3w31k3] [decimal](9, 0) NULL,
+	[d3w31k4] [decimal](8, 0) NULL,
+	[d3w31k5] [decimal](8, 0) NULL,
+	[d3w31k6] [decimal](8, 0) NULL,
+	[d3w32k2] [decimal](3, 0) NULL,
+	[d3w32k3] [decimal](9, 0) NULL,
+	[d3w32k4] [decimal](8, 0) NULL,
+	[d3w32k5] [decimal](8, 0) NULL,
+	[d3w32k6] [decimal](8, 0) NULL,
+	[d3w33k2] [decimal](3, 0) NULL,
+	[d3w33k3] [decimal](9, 0) NULL,
+	[d3w33k4] [decimal](8, 0) NULL,
+	[d3w33k5] [decimal](8, 0) NULL,
+	[d3w33k6] [decimal](8, 0) NULL,
+	[d4w1k1] [decimal](2, 0) NULL,
+	[d4w1k2] [decimal](9, 0) NULL,
+	[d4w2k2] [decimal](8, 0) NULL,
+	[d4w3k2] [decimal](7, 0) NULL,
+	[d4w4k2] [decimal](6, 0) NULL,
+	[d4w1k3] [decimal](8, 0) NULL,
+	[d4w2k3] [decimal](7, 0) NULL,
+	[d4w3k3] [decimal](6, 0) NULL,
+	[d4w4k3] [decimal](5, 0) NULL,
+	[d4w1k4] [decimal](8, 0) NULL,
+	[d4w2k4] [decimal](7, 0) NULL,
+	[d4w3k4] [decimal](6, 0) NULL,
+	[d4w4k4] [decimal](5, 0) NULL,
+	[d4w1k5] [decimal](8, 0) NULL,
+	[d4w2k5] [decimal](7, 0) NULL,
+	[d4w3k5] [decimal](6, 0) NULL,
+	[d4w4k5] [decimal](5, 0) NULL,
+	[ra] [nvarchar](2) NULL,
+	[ra_f] [nvarchar](2) NULL,
+	[sonda] [nvarchar](1) NULL,
+	[inna_sonda] [nvarchar](60) NULL,
+	[data_sonda] [nvarchar](10) NULL,
+	[inf] [nvarchar](1) NULL,
+	[nsk_nowy] [nvarchar](72) NULL,
+	[ad1_s_nowy] [nvarchar](62) NULL,
+	[ad2_s_nowy] [nvarchar](29) NULL,
+	[kp_s_nowy] [nvarchar](6) NULL,
+	[tl_k] [nvarchar](12) NULL,
+	[e_mail_k] [nvarchar](50) NULL,
+	[email_nowy] [nvarchar](50) NULL,
+	[sek] [nvarchar](1) NULL,
+	[fw] [nvarchar](3) NULL,
+	[kody_rpwdl] [nvarchar](500) NULL,
+	[nr_przy1] [nvarchar](1) NULL,
+	[nr_przy2] [nvarchar](1) NULL,
+	[nr_przy3] [nvarchar](1) NULL,
+	[przyczyna] [nvarchar](500) NULL,
+	[d2w1k3] [decimal](7, 0) NULL,
+	[d2w2k3] [decimal](7, 0) NULL,
+	[d2w3k3] [decimal](7, 0) NULL,
+	[d2w4k3] [decimal](7, 0) NULL,
+	[d3w01k7] [decimal](8, 0) NULL,
+	[d3w02k7] [decimal](8, 0) NULL,
+	[d3w03k7] [decimal](8, 0) NULL,
+	[d3w04k7] [decimal](8, 0) NULL,
+	[d3w05k7] [decimal](8, 0) NULL,
+	[d3w06k7] [decimal](8, 0) NULL,
+	[d3w07k7] [decimal](8, 0) NULL,
+	[d3w08k7] [decimal](8, 0) NULL,
+	[d3w09k7] [decimal](8, 0) NULL,
+	[d3w10k7] [decimal](8, 0) NULL,
+	[d3w11k7] [decimal](8, 0) NULL,
+	[d3w12k7] [decimal](8, 0) NULL,
+	[d3w13k7] [decimal](8, 0) NULL,
+	[d3w14k7] [decimal](8, 0) NULL,
+	[d3w15k7] [decimal](8, 0) NULL,
+	[d3w16k7] [decimal](8, 0) NULL,
+	[d3w17k7] [decimal](8, 0) NULL,
+	[d3w18k7] [decimal](8, 0) NULL,
+	[d3w19k7] [decimal](8, 0) NULL,
+	[d3w20k7] [decimal](8, 0) NULL,
+	[d3w21k7] [decimal](8, 0) NULL,
+	[d3w22k7] [decimal](8, 0) NULL,
+	[d3w23k7] [decimal](8, 0) NULL,
+	[d3w24k7] [decimal](8, 0) NULL,
+	[d3w25k7] [decimal](8, 0) NULL,
+	[d3w26k7] [decimal](8, 0) NULL,
+	[d3w27k7] [decimal](8, 0) NULL,
+	[d3w28k7] [decimal](8, 0) NULL,
+	[d3w29k7] [decimal](8, 0) NULL,
+	[d3w30k7] [decimal](8, 0) NULL,
+	[d3w31k7] [decimal](8, 0) NULL,
+	[d3w32k7] [decimal](8, 0) NULL,
+	[d3w33k7] [decimal](8, 0) NULL,
+	[kod_ms] [nvarchar](7) NULL,
+	[kod_miej] [nvarchar](7) NULL,
+	[covid_19] [decimal](1, 0) NULL,
+	[czas_zap] [decimal](1, 0) NULL,
+	[l_dni] [decimal](3, 0) NULL,
+	[telepor] [decimal](1, 0) NULL,
+	[xml_zmiana] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ids] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[zd3_2021_dane] ADD  DEFAULT ((0)) FOR [zapis_zmian_import_danych]
+GO
+
+ALTER TABLE [dbo].[zd3_2021_dane] ADD  DEFAULT ((0)) FOR [zapis_zmian_status_bledu]
+GO
+
+ALTER TABLE [dbo].[zd3_2021_dane] ADD  DEFAULT ((0)) FOR [zapis_zmian_status_bledu_npl]
+GO
+
+ALTER TABLE [dbo].[zd3_2021_dane] ADD  DEFAULT ((0)) FOR [zapis_zmian_ilosc_bledow]
+GO
+
+ALTER TABLE [dbo].[zd3_2021_dane] ADD  DEFAULT ((0)) FOR [zapis_zmian_rekord_sprawdzony]
+GO
+
+ALTER TABLE [dbo].[zd3_2021_dane] ADD  DEFAULT ((0)) FOR [zapis_zmian_ilosc_bledow_npl]
+GO
+
+ALTER TABLE [dbo].[zd3_2021_dane] ADD  DEFAULT ((0)) FOR [zapis_zmian_rekord_sprawdzony_npl]
+GO
+
+ALTER TABLE [dbo].[zd3_2021_dane] ADD  DEFAULT ((0)) FOR [zapis_zmian_czy_rekord_multisekcji]
+GO
+
+
+
+USE [SZ_ZD3]
+GO
+
+/****** Object:  Table [dbo].[slownik_kod_rpz]    Script Date: 2022-02-11 13:45:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[slownik_kod_rpz](
+	[id] [tinyint] NULL,
+	[kod_rpz_nazwa] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+GO
+
+
+
+
+--BASE VIEWS
+
+
+CREATE VIEW [dbo].[v_nuts_2021]
+AS
+SELECT [makreg] as MAKREG
+      ,[woj]    as WOJ
+      ,[reg]    as REG
+      ,[podr]   as PODR
+      ,[pow]    as POW
+      ,[makreg_nazwa]
+      ,[woj_nazwa]
+      ,[reg_nazwa]
+      ,[podr_nazwa]
+      ,[pow_nazwa]
+FROM [dbo].[v_teryt_nuts_2021]
+group by [makreg]
+        ,[woj]
+        ,[reg]
+        ,[podr]
+        ,[pow]
+        ,[makreg_nazwa]
+        ,[woj_nazwa]
+        ,[reg_nazwa]
+        ,[podr_nazwa]
+        ,[pow_nazwa]
+GO
+
+
+
+
+
+
+
 USE [SZ_ZD3]
 GO
 
@@ -339,9 +745,6 @@ LEFT OUTER JOIN SPD.dbo.slownik_zd_kod_podmiotu AS kod_podmiotu
 
 --select *  FROM SPD.dbo.zd3_2020_dane
 
-
-
-
 GO
 
 
@@ -350,9 +753,7 @@ GO
 
 
 
-
-
-
+--FINALLY, THE CODE OF A STORED PROCEDURE. Also the code of a function used in the definition of the SP.
 
 
 USE [SZ_ZD3]
